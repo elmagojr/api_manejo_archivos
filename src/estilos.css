@@ -1,0 +1,22 @@
+.btn-modern {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border: none;
+    color: white;
+    padding: 0.8rem 1.6rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(106, 17, 203, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-modern:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(106, 17, 203, 0.5);
+  }
+  
+  .btn-modern:active {
+    transform: scale(0.97);
+    box-shadow: 0 4px 12px rgba(106, 17, 203, 0.4);
+  }
+  

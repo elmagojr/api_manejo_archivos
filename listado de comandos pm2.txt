@@ -1,0 +1,25 @@
+pm2 start servidor.js ------para iniciar el servidor en segundo plano
+pm2 list -------------lsitado de servidores levantados
+pm2 stop 0 --------------en lugar de 0 va el ID de el servidor
+
+pm2 delete 0 -------------para eliminar un servidor de la lista de ejecucion 
+pm2 restart 0 ------------para reiniciar el servidor
+
+pm2 logs -------------para ver los logs en tiempo real
+
+pm2 startup --------------al iniciarl el sistema (no lo e probado) se debe ejecutar un linea de comando despues de esta
+
+
+en omnis
+Calculate %CUENTA as 7
+Calculate %%HOST as 'localhost'
+Calculate %%PUERTO as 3000
+Calculate %%DIRECCION as con('http://',%%HOST,':',%%PUERTO,'/?id=',%CUENTA)
+Launch program (Do not quit OMNIS) {"C:\SISC\EXE.bat" "[%%DIRECCION]"}     ;; lanzar addon WEB
+
+
+para levantar app por tunnel
+ngrok http --url=toucan-powerful-incredibly.ngrok-free.app 3000
+
+
+ start msedge --new-window --disable-prompt-on-repost --app="http://localhost:3000/?id=8"
