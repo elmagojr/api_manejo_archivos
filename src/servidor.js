@@ -12,9 +12,11 @@ const { log } = require("console");
 const app = express();
 app.use(cors());
 app.use(express.json());
+const authRouter = require('./JS/Auth');
+app.use('/api/auth', authRouter);
 const connectionString = 'DSN=SISC';
 //const connectionString = 'Driver=SQL Anywhere 12;UID=HID;PWD=DE44EAE255516A0E0AD4901D8691A0F2850548FFC8AFD519AA84833E45F6018A;DBN=SISC_EDNE;ENG=SISC_EDNE;';
-
+    
 const puerto = 3000;
 
 function formatBytes(bytes) {
