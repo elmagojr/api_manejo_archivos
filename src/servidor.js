@@ -30,7 +30,7 @@ console.log('path:  ' + path.resolve('js'));
 app.use(express.static(path.resolve('JS')));
 app.use(express.static(path.resolve('img')));
 
-app.get('/test-connection', async (req, res) => {
+app.get('/test', async (req, res) => {
     try {
         const connection = await ODBC.connect(connectionString);
         await connection.close();
@@ -74,10 +74,23 @@ app.get('/api/allcoop', async (req, res) => {
     }
 });
 
+app.get('/api/usrActivos', async (req, res) => {
+    
+    try {
+        const connection = await ODBC.connect(connectionString);
+        const result = await connection.query(`SELECT usu_codigo as usr_codigo, usu_nombre as usr_nombre FROM "DBA"."Usuarios" where USU_ACTIVO = 1 and usu_nombre not in (select nombre_usr from dba.USUARIOS_HUELLAS) order by usu_nombre asc`);
+        await connection.close();
+        res.json(result);
+    } catch (error) {
+        console.error('Error de consulta:', error);
+        res.status(500).send('Error al consultar la base de datos');
+    }
+});
+
 app.get('/', async (req, res) => {
 
     //console.log(path.resolve('subir_archivo.html'));    
-    res.sendFile(path.resolve('subir_archivo.html'))
+    //res.sendFile(path.resolve('subir_archivo.html'))
 })
 
 //const subidaTemporal = multer().none();
